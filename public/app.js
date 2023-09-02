@@ -77,7 +77,7 @@ function reset(){
 
 
 
-var timerMin = 5;
+var timerMin = 4;
 var timerSec = 60;
 var timerMsec = 100;
 var interval;
@@ -91,13 +91,12 @@ var timerStopBtn = document.getElementById("timerStopBtn")
 var timerResetBtn = document.getElementById("timerResetBtn")
 
 function timer(){
-    timerMinHeading.innerHTML = "04"
     timerMsec--;
     timerMsecHeading.innerHTML = timerMsec;
     if(timerMsec <=0){
         timerSec--;
         timerSecHeading.innerHTML = timerSec;
-        timerMsec = 60;
+        timerMsec = 100;
     }
     else if(timerSec <= 0){
         timerMin--;
@@ -109,8 +108,7 @@ function timer(){
 }
 
 function timerStart(){
-    // timerMin--;
-    // timerMinHeading.innerHTML = timerMin
+   
     interval = setInterval(timer,10);
     timerStartBtn.classList.add("hidden")
     timerStopBtn.classList.remove("hidden")
@@ -124,9 +122,10 @@ function timerStop(){
 }
 
 function timerReset(){
-    var timerMin = 5;
-    var timerSec = 60;
-    var timerMsec = 60;
+    timerStop()
+     timerMin = 4;
+     timerSec = 60;
+     timerMsec = 100;
 
     timerMinHeading.innerHTML = "05";
     timerSecHeading.innerHTML = "00";
@@ -135,7 +134,5 @@ function timerReset(){
     timerStartBtn.classList.remove("hidden")
     timerStopBtn.classList.add("hidden")
     timerResetBtn.classList.add("hidden");
-
-    timerStop()
 
 }
